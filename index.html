@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/css/bootstrap.min.css">
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Lista de Tarefas</h1>
+        <form method="POST" action="/add_task" class="mt-3">
+            <div class="input-group">
+                <input type="text" name="task" class="form-control" placeholder="Adicionar nova tarefa" required>
+                <button type="submit" class="btn btn-primary">Adicionar</button>
+            </div>
+        </form>
+        <ul class="list-group mt-3">
+            {% for task in tasks %}
+                <li class="list-group-item{% if task[2] == 1 %} list-group-item-success{% endif %}">
+                    {{ task[1] }}
+                    <a href="/edit_task/{{ task[0] }}" class="btn btn-warning btn-sm float-end mx-2">Editar</a>
+                    <a href="/delete_task/{{ task[0] }}" class="btn btn-danger btn-sm float-end">Excluir</a>
+                    <a href="/complete_task/{{ task[0] }}" class="btn btn-success btn-sm float-end mx-2">Concluída</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
