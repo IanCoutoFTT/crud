@@ -4,3 +4,4 @@ Sistema de listas com banco de dados com versão Console e Web; com opção de a
 ## Tecnologias de desenvolvimento utilizadas 
 - Python
 - HTML
+- DB - sqlite / Mysql
